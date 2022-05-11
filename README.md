@@ -138,7 +138,7 @@ Whenever your read from or write to your table you consume what’s called read 
 A general recommendation is to start with on-demand capacity mode, observe the amount of consumed capacity and once the app is fairly stable switch to provisioned capacity with Auto Scaling. 
 
 You should be aware that secondary indexes differ in the way they use the capacity.  
-** Local secondary indexes share the capacity with the underlying base table whereas global secondary indexes have their own capacity settings.**
+**Local secondary indexes share the capacity with the underlying base table whereas global secondary indexes have their own capacity settings.**
 
 ### Capacity Units
 
