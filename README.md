@@ -161,7 +161,10 @@ Whenever your read from or write to your table you consume what’s called read 
 * **Provisioned Capacity**: You specify the amount of RCUs/WCUs for your table and that’s all there is. If you use more throughput than you have provisioned, you’ll get a ProvisionedThroughputExceeded exception. This can be integrated with AutoScaling to respond to changes in demand. This billing model is fairly well predictable.
 * **On-Demand Capacity**: DynamoDB will automatically scale the RCUs and WCUs for you, but individual RCUs and WCUs are a little bit more expensive. You’re billed for the amount of RCUs/WCUs you use. This mode is really nice when you get started and don’t know your load patterns yet or you have very spiky access patterns.
 
-A general recommendation is to start with on-demand capacity mode, observe the amount of consumed capacity and once the app is fairly stable switch to provisioned capacity with Auto Scaling. You should be aware that secondary indexes differ in the way they use the capacity. Local secondary indexes share the capacity with the underlying base table whereas global secondary indexes have their own capacity settings.
+A general recommendation is to start with on-demand capacity mode, observe the amount of consumed capacity and once the app is fairly stable switch to provisioned capacity with Auto Scaling. 
+
+You should be aware that secondary indexes differ in the way they use the capacity.  
+**Local secondary indexes share the capacity with the underlying base table whereas global secondary indexes have their own capacity settings.**
 
 ### Capacity Units
 
