@@ -310,3 +310,8 @@ The same is true for multiple Get operations, which you can group and submit as 
 
 Making your transactions idempotent helps prevent application errors if the same operation is submitted multiple times due to a connection time-out or other connectivity issue.
 
+
+## DynamoDB Internals
+
+https://www.amazon.science/blog/lessons-learned-from-10-years-of-dynamodb
+
