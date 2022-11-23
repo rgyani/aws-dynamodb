@@ -166,6 +166,17 @@ A general recommendation is to start with on-demand capacity mode, observe the a
 You should be aware that secondary indexes differ in the way they use the capacity.  
 **Local secondary indexes share the capacity with the underlying base table whereas global secondary indexes have their own capacity settings.**
 
+
+### Provisioned with Auto-Scaling vs On-Demand Scaling 
+| Provisioned with Auto-Scaling |	On-Demand |
+|---|---|
+| Predictable, consistent traffic |Variable traffic with lots of traffic spikes |
+| Predictable cost structure, while also setting limits | Don't want to think about provisioning throughput (just want it to work) |
+| | Unpredictable/Limited traffic loads (e.g. application in development)|
+
+**Remember for Provisioned with Auto-Scaling you are basically paying for throughput 24/7**. Whereas for On-Demand Scaling you pay per request. This means for applications still in development or low traffic applications, it might be more economical to use On-Demand Scaling and not worry about provisioning throughput. However, at scale, this can quickly shift once you have a more consistent usage pattern.
+
+
 ### Capacity Units
 
 The benefits of managed, serverless AWS offerings are that we can measure the cost by a particular action and not only by a compute time. In regards to DynamoDB, we pay for the storage and the requests we perform against the table.
@@ -310,6 +321,9 @@ The same is true for multiple Get operations, which you can group and submit as 
 
 Making your transactions idempotent helps prevent application errors if the same operation is submitted multiple times due to a connection time-out or other connectivity issue.
 
+
+### AWS re:Invent 2018: Amazon DynamoDB Deep Dive: Advanced Design Patterns for DynamoDB (DAT401)  
+https://www.youtube.com/watch?v=HaEPXoXVf2k
 
 ## DynamoDB Internals
 
